@@ -1,7 +1,7 @@
 #include <stdio.h>
 void writeFile()
 {
-    FILE *p = fopen("b.txt", "w");
+    FILE *p = fopen("/opt/ctest2/bbb", "w");
     char buf = 'a';
     int i;
     for(i = 0; i < 10 ; i++)
