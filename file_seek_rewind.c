@@ -8,17 +8,25 @@ int main(){
     char text[FILE_LINE_LEN];
     FILE *fp = fopen("/opt/ctest2/bbb", "r");
     
-    int onex = fgets(text, FILE_LINE_LEN, fp);
-    printf("读取结果：%d",onex);
-    memset(text, 0x0, FILE_LINE_LEN);
-
-
-    int twox = fgets(text, FILE_LINE_LEN, fp);
-    int lenx = strlen(text);
-    fseek(fp, -lenx, SEEK_END);
+    fgets(text, FILE_LINE_LEN, fp);
+    int onex = feof(fp);
     printf("%s",text);
-    printf("%d--%d\n", ftell(fp), strlen(text));
+    printf("读取fgets值：%d\n",onex);
     memset(text, 0x0, FILE_LINE_LEN);
+
+
+    fgets(text, FILE_LINE_LEN, fp);
+    int twox = feof(fp);
+    printf("%s",text);
+    printf("读取fgets值：%d\n",twox);
+    int lenx = strlen(text);
+    fseek(fp, 0, SEEK_SET);
+    memset(text, 0x0, FILE_LINE_LEN);
+
+    fgets(text, FILE_LINE_LEN, fp);
+    int threex = feof(fp);
+    printf("%s",text);
+    printf("读取fgets值：%d\n",threex);
     sleep(1);
 
 
