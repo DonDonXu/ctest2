@@ -6,8 +6,10 @@
 
 int main(){
     char text[FILE_LINE_LEN];
-    FILE *fp = fopen("/opt/ctest2/bbb", "r");
-    
+    FILE *fp = fopen("/home/donshu/ctest2/bbb", "r");
+
+
+    memset(text, 0x0, FILE_LINE_LEN);
     fgets(text, FILE_LINE_LEN, fp);
     int onex = feof(fp);
     printf("%s",text);
@@ -20,6 +22,17 @@ int main(){
     printf("%s",text);
     printf("读取fgets值：%d\n",twox);
     int lenx = strlen(text);
+//------------------------------------------------
+    puts("----------------------");
+    memset(text, 0x0, FILE_LINE_LEN);
+    fgets(text, FILE_LINE_LEN, fp);
+    int fourx = feof(fp);
+    printf("%s",text);
+    printf("读取fgets值：%d\n",fourx);
+    int lenxx = strlen(text);
+    printf("字符串长度：%d", lenxx);
+    puts("----------------------"); 
+//------------------------------------------------
     fseek(fp, 0, SEEK_SET);
     memset(text, 0x0, FILE_LINE_LEN);
 
